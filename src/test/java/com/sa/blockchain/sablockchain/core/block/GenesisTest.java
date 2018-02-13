@@ -6,15 +6,17 @@ import org.junit.Test;
 import java.io.IOException;
 import java.net.URL;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class GenesisTest {
+
+    private ObjectMapper objectMapper = new ObjectMapper();
 
     @Test
     public void createGenesisBlock() throws IOException {
         URL url = GenesisTest.class.getClassLoader().getResource("genesis/genesis.json");
-        ObjectMapper objectMapper = new ObjectMapper();
         Genesis genesis = objectMapper.readValue(url, Genesis.class);
-        System.out.println(genesis);
+        assertThat(genesis).isNotNull();
     }
 }

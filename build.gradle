@@ -30,4 +30,6 @@ dependencies {
     compile group: 'com.google.guava', name: 'guava', version: '23.6-jre'
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
+
 }
