@@ -27,7 +27,9 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-web-services')
 	runtime('org.springframework.boot:spring-boot-devtools')
-    compile group: 'com.google.guava', name: 'guava', version: '23.6-jre'
+	compile group: 'com.madgag.spongycastle', name: 'core', version: '1.58.0.0'
+	compile group: 'com.madgag.spongycastle', name: 'prov', version: '1.58.0.0'
+	compile group: 'com.google.guava', name: 'guava', version: '23.6-jre'
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'

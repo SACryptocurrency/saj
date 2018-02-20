@@ -1,18 +1,24 @@
 package com.sa.blockchain.sablockchain.core.block;
 
 import com.google.common.collect.Lists;
-import lombok.Builder;
-import lombok.Data;
-import lombok.extern.log4j.Log4j;
+
 import java.util.List;
 
-@Log4j
-@Data
-@Builder
+import static org.springframework.util.CollectionUtils.isEmpty;
+
 public class Block {
 
     private BlockHeader header;
-    private List<Transaction> transactionList = Lists.newArrayList();
-    private List<BlockHeader> uncleList = Lists.newArrayList();
+    private List<Transaction> transactionList;
+    private List<BlockHeader> uncleList;
 
+	public Block(BlockHeaderInfo blockHeaderInfo, List<Transaction> transactionsList, List<BlockHeader> uncleList) {
+		this.header = new BlockHeader(blockHeaderInfo);
+		this.transactionList = isEmpty(transactionsList) ? Lists.newArrayList() : transactionsList;
+		this.uncleList = isEmpty(uncleList) ? Lists.newArrayList() : uncleList;
+	}
+
+	public long getNumber() {
+		return header.getNumber();
+	}
 }
