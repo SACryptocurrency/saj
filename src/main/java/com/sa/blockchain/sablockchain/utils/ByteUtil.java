@@ -1,9 +1,8 @@
 package com.sa.blockchain.sablockchain.utils;
 
 import com.sa.blockchain.sablockchain.exceptions.SaException;
+import org.spongycastle.util.encoders.Hex;
 import org.springframework.util.StringUtils;
-
-import java.math.BigInteger;
 
 public interface ByteUtil {
 
@@ -39,6 +38,6 @@ public interface ByteUtil {
 			hexString = "0" + hexString;
 		}
 
-		return new BigInteger(hexString, 16).toByteArray();
+		return Hex.decode(hexString);
 	}
 }

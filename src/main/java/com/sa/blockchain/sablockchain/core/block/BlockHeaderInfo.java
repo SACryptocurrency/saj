@@ -74,8 +74,8 @@ public class BlockHeaderInfo {
 		this.difficulty = ByteUtil.hexStringToBytesWithValidation(difficulty, 32, true);
 	}
 
-	public void setParentHash(byte[] parentHash) {
-		this.parentHash = parentHash;
+	public void setParentHash(String parentHash) {
+		this.parentHash = ByteUtil.hexStringToBytesWithValidation(parentHash, 32, false);
 	}
 
 	public void setUnclesHash(byte[] unclesHash) {
@@ -84,5 +84,9 @@ public class BlockHeaderInfo {
 
 	public void setLogsBlooms(byte[] logsBlooms) {
 		this.logsBlooms = logsBlooms;
+	}
+
+	public long getNumber() {
+		return number;
 	}
 }

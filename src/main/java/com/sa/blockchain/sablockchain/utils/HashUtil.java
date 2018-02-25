@@ -16,7 +16,7 @@ public class HashUtil {
 
 	private HashUtil() {}
 
-	private static final String HASH_256_ALGORITHM_NAME = "ETH-KECCAK-256";
+	private static final String HASH_256_ALGORITHM_NAME = "SA-KECCAK-256";
 	private static final String CRYPTO_PROVIDER_NAME = "SC";
 	private static final Provider CRYPTO_PROVIDER;
 
@@ -27,11 +27,12 @@ public class HashUtil {
 	static {
 		Provider p = Security.getProvider(CRYPTO_PROVIDER_NAME);
 		p = (p != null) ? p : new BouncyCastleProvider();
-		p.put("MessageDigest.ETH-KECCAK-256", "org.ethereum.crypto.cryptohash.Keccak256");
-		p.put("MessageDigest.ETH-KECCAK-512", "org.ethereum.crypto.cryptohash.Keccak512");
+		p.put("MessageDigest.SA-KECCAK-256", "com.sa.blockchain.sablockchain.crypto.cryptohash.Keccak256");
+		p.put("MessageDigest.SA-KECCAK-512", "com.sa.blockcahin.sablockchain.crypto.cryptohash.Keccak512");
 
 		Security.addProvider(p);
 		CRYPTO_PROVIDER = Security.getProvider(CRYPTO_PROVIDER_NAME);
+
 		EMPTY_LIST_HASH = sha3(RLP.encodeList());
 		EMPTY_TRIE_HASH = sha3(RLP.encodeElement(EMPTY_BYTE_ARRAY));
 	}
